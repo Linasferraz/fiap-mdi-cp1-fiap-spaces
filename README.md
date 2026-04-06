@@ -100,12 +100,25 @@ O aplicativo atualmente conta com as seguintes telas:
 
 ### Prints do aplicativo
 
-> Adicionar aqui os prints de cada tela do app.
+## Tela Home
+
+![Tela Home](./assets/readme-telas/tela-home.jpeg)
+
+## Tela Laboratórios
+
+![Tela Laboratórios](./assets/readme-telas/tela-lab.jpeg)
+
+## Sala de Estudos
+
+![Sala de Estudos](./assets/readme-telas/tela-saladeest.jpeg)
+
+## Tela de Perfil
+
+![Tela de Perfil](./assets/readme-telas/tela-perfil.jpeg)
 
 ### Vídeo ou GIF de demonstração
 
-> Adicionar aqui o link do vídeo ou GIF.
-
+https://drive.google.com/file/d/19g28rmcv03ZPNXLBcsXJHboihr_pAtYY/view?usp=sharing
 
 ---
 
