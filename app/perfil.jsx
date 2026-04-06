@@ -1,68 +1,97 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { router } from 'expo-router';
 
 export default function Perfil() {
+  const usuario = {
+    nome: 'Evellyn Valencia',
+    rm: '557929',
+    curso: 'Engenharia de Software',
+    turma: '3ESPH',
+    avatar: require('../assets/images/user.png'),
+    reservas: 5,
+    proximaReserva: 'Sala de Estudos 401 - Hoje, 13:30',
+    campus: 'FIAP Paulista',
+  };
+
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={() => router.back()}>
-        <Text style={styles.back}>← Voltar</Text>
+    <ScrollView contentContainerStyle={styles.container}>
+      <TouchableOpacity style={{ width: '100%' }} onPress={() => router.back()}>     
+      <Text style={styles.back}>← Voltar</Text>
       </TouchableOpacity>
 
-      <Text style={styles.title}>Perfil do Usuário</Text>
-      <Text style={styles.subtitle}>
-        Esta tela será responsável por exibir os dados do aluno, histórico de reservas e informações acadêmicas.
-      </Text>
+      <Image source={usuario.avatar} style={styles.avatar} />
+      <Text style={styles.nome}>{usuario.nome}</Text>
 
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Em desenvolvimento</Text>
-        <Text style={styles.cardText}>
-          Funcionalidade reservada para implementação da integrante responsável.
-        </Text>
+        <Text style={styles.cardTitle}>Dados do Aluno</Text>
+        <Text style={styles.cardText}>RM: {usuario.rm}</Text>
+        <Text style={styles.cardText}>Curso: {usuario.curso}</Text>
+        <Text style={styles.cardText}>Turma: {usuario.turma}</Text>
+        <Text style={styles.cardText}>Campus: {usuario.campus}</Text>
       </View>
-    </View>
+
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>Histórico de Reservas</Text>
+        <Text style={styles.cardText}>Reservas realizadas: {usuario.reservas}</Text>
+        <Text style={styles.cardText}>Próxima reserva: {usuario.proximaReserva}</Text>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
+    alignItems: 'center',
     backgroundColor: '#0B0B0F',
-    padding: 24,
+    paddingHorizontal: 24,
+    paddingTop: 10,
+    paddingBottom: 30,
   },
   back: {
+    alignSelf: 'flex-start',
+    width: '100%',
+    textAlign: 'left',
     color: '#FF005C',
-    marginTop: 50,
+    marginTop: 10,
     marginBottom: 20,
     fontWeight: '600',
+    fontSize: 16,
   },
-  title: {
-    fontSize: 28,
+  avatar: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    borderWidth: 3,
+    borderColor: '#FF005C',
+    marginBottom: 16,
+  },
+  nome: {
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#FFFFFF',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 15,
-    color: '#B3B3B3',
-    marginBottom: 30,
-    lineHeight: 22,
+    marginBottom: 15,
+    textAlign: 'center',
   },
   card: {
+    width: '100%',
     backgroundColor: '#15151D',
     borderRadius: 18,
     padding: 20,
     borderWidth: 1,
     borderColor: '#2A2A35',
+    marginBottom: 16,
   },
   cardTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#FFFFFF',
-    marginBottom: 8,
+    marginBottom: 10,
   },
   cardText: {
     fontSize: 14,
     color: '#B3B3B3',
-    lineHeight: 20,
+    lineHeight: 22,
+    marginBottom: 4,
   },
 });
